@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 #Remove previous installation
 rm -rfv /usr/tsos-toolchain
 
