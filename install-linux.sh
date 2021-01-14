@@ -26,7 +26,7 @@ DEVKITARM_DOWNLOAD_URL=https://github.com/devkitPro/buildscripts/archive/devkitA
 GBDK_DOWNLOAD_URL=https://github.com/Zal0/gbdk-2020/archive/$GBDK_VERSION.tar.gz
 
 #The install dir for the compilers
-INSTALL_DIR=/usr/tsos-toolchain
+INSTALL_DIR=/usr/i686-elf
 
 #Prepare and move to the directory
 rm -rfv /tmp/tsos
@@ -77,6 +77,18 @@ cd build
     --disable-werror
 
 make
+make install
+
+#Install devkitarm
+cd /tmp/tsos
+cd devkitarm
+chmod +x ./*.sh
+./build-devkit.sh
+
+#Install gbdk
+cd /tmp/tsos
+cd gbdk
+make 
 make install
 
 #Lets update that path variable
