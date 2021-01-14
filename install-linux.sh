@@ -99,5 +99,3 @@ PATH=$PATH:$INSTALL_DIR/bin
 echo "export PATH=$PATH" >>~/.bashrc
 
 cd $CODE_DIR
-
-touch ./token
