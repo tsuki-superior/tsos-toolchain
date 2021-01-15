@@ -15,6 +15,9 @@ DEVKITARM_VERSION=r55
 #The version of gbdk to use
 GBDK_VERSION=4.0.1
 
+#The version of sdcc to use
+SDCC_VERSION=3.0.0
+
 #The url for gcc`s tarball
 GCC_DOWNLOAD_URL=https://ftp.gnu.org/gnu/gcc/gcc-$GCC_VERSION/gcc-$GCC_VERSION.tar.xz
 
@@ -28,7 +31,7 @@ DEVKITARM_DOWNLOAD_URL=https://github.com/devkitPro/buildscripts/archive/devkitA
 GBDK_DOWNLOAD_URL=https://github.com/Zal0/gbdk-2020/archive/$GBDK_VERSION.tar.gz
 
 #The sdcc download url
-SDCC_DOWNLOAD_URL=http://slackbuilds.org/slackbuilds/14.0/development/sdcc.tar.gz
+SDCC_DOWNLOAD_URL=https://netactuate.dl.sourceforge.net/project/sdcc/sdcc/$SDCC_VERSION/sdcc-src-$SDCC_VERSION.tar.bz2
 
 #The install dir for the compilers
 INSTALL_DIR=/usr/i686-elf
@@ -54,7 +57,8 @@ tar -xf devkitARM_$DEVKITARM_VERSION.tar.gz
 mv -v buildscripts-devkitARM_$DEVKITARM_VERSION/ devkitarm
 tar -xf $GBDK_VERSION.tar.gz
 mv -v gbdk-2020-$GBDK_VERSION/ gbdk
-tar -xf sdcc.tar.gz
+tar -xf sdcc-src-$SDCC_VERSION.tar.bz2
+mv -v sdcc-src-$SDCC_VERSION/ sdcc
 
 #We will compile binutils first
 cd binutils
