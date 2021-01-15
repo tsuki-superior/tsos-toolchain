@@ -60,6 +60,9 @@ mv -v sdcc-src-$SDCC_VERSION/ sdcc
 tar -xf $GBDK_VERSION.tar.gz
 mv -v gbdk-2020-$GBDK_VERSION/ gbdk
 
+#Lets update that path variable
+PATH=$PATH:$INSTALL_DIR/bin
+
 #We will compile binutils first
 cd binutils
 mkdir -pv build
@@ -110,9 +113,6 @@ cd /tmp/tsos
 cd gbdk
 make 
 make install
-
-#Lets update that path variable
-PATH=$PATH:$INSTALL_DIR/bin
 
 echo "export PATH=$PATH" >>~/.bashrc
 
