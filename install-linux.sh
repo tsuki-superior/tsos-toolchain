@@ -27,6 +27,9 @@ DEVKITARM_DOWNLOAD_URL=https://github.com/devkitPro/buildscripts/archive/devkitA
 #The url for gbdk
 GBDK_DOWNLOAD_URL=https://github.com/Zal0/gbdk-2020/archive/$GBDK_VERSION.tar.gz
 
+#The sdcc download url
+SDCC_DOWNLOAD_URL=http://slackbuilds.org/slackbuilds/14.0/development/sdcc.tar.gz
+
 #The install dir for the compilers
 INSTALL_DIR=/usr/i686-elf
 
@@ -40,6 +43,7 @@ wget $GCC_DOWNLOAD_URL
 wget $BINUTILS_DOWNLOAD_URL
 wget $DEVKITARM_DOWNLOAD_URL
 wget $GBDK_DOWNLOAD_URL
+wget $SDCC_DOWNLOAD_URL
 
 #Unarchive those tarballs
 tar -xf gcc-$GCC_VERSION.tar.xz
@@ -50,6 +54,7 @@ tar -xf devkitARM_$DEVKITARM_VERSION.tar.gz
 mv -v buildscripts-devkitARM_$DEVKITARM_VERSION/ devkitarm
 tar -xf $GBDK_VERSION.tar.gz
 mv -v gbdk-2020-$GBDK_VERSION/ gbdk
+tar -xf sdcc.tar.gz
 
 #We will compile binutils first
 cd binutils
@@ -85,7 +90,7 @@ make install
 cd /tmp/tsos
 cd devkitarm
 chmod +x ./*.sh
-./build-devkit.sh
+./build-devkit.sh 1
 
 #Install gbdk
 cd /tmp/tsos
