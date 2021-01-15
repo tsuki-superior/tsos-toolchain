@@ -61,7 +61,8 @@ tar -xf $GBDK_VERSION.tar.gz
 mv -v gbdk-2020-$GBDK_VERSION/ gbdk
 
 #Lets update that path variable
-PATH=$PATH:$INSTALL_DIR/bin
+export PATH=$PATH:$INSTALL_DIR/bin
+echo "export PATH=$PATH" >>~/.bashrc
 
 #We will compile binutils first
 cd binutils
@@ -92,6 +93,9 @@ cd build
 
 make
 make install
+
+#Im sorry that stuff doesnt work rn
+exit
 
 #Install devkitarm
 cd /tmp/tsos
