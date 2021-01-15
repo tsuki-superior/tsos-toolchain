@@ -103,7 +103,7 @@ mkdir -pv build
 cd build
 ../configure --prefix=$INSTALL_DIR
 
-SDCCDIR=$INSTALL_DIR
+export SDCCDIR=$INSTALL_DIR
 
 #Install gbdk
 cd /tmp/tsos
