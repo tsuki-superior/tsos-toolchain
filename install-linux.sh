@@ -34,7 +34,7 @@ SDCC_DOWNLOAD_URL=https://netactuate.dl.sourceforge.net/project/sdcc/sdcc/$SDCC_
 GBDK_DOWNLOAD_URL=https://github.com/Zal0/gbdk-2020/archive/$GBDK_VERSION.tar.gz
 
 #The install dir for the compilers
-INSTALL_DIR=/usr/i686-elf
+INSTALL_DIR=/usr/tsos
 
 #Prepare and move to the directory
 rm -rfv /tmp/tsos
@@ -102,6 +102,8 @@ cd sdcc
 mkdir -pv build
 cd build
 ../configure --prefix=$INSTALL_DIR
+
+SDCCDIR=$INSTALL_DIR
 
 #Install gbdk
 cd /tmp/tsos
