@@ -16,7 +16,7 @@ DEVKITARM_VERSION=r55
 GBDK_VERSION=4.0.1
 
 #The version of sdcc to use
-SDCC_VERSION=3.0.0
+SDCC_VERSION=4.0.0
 
 #The url for gcc`s tarball
 GCC_DOWNLOAD_URL=https://ftp.gnu.org/gnu/gcc/gcc-$GCC_VERSION/gcc-$GCC_VERSION.tar.xz
@@ -27,11 +27,11 @@ BINUTILS_DOWNLOAD_URL=https://ftp.gnu.org/gnu/binutils/binutils-$BINUTILS_VERSIO
 #The url for devkitarms`s tarball
 DEVKITARM_DOWNLOAD_URL=https://github.com/devkitPro/buildscripts/archive/devkitARM_$DEVKITARM_VERSION.tar.gz
 
-#The url for gbdk
-GBDK_DOWNLOAD_URL=https://github.com/Zal0/gbdk-2020/archive/$GBDK_VERSION.tar.gz
-
 #The sdcc download url
 SDCC_DOWNLOAD_URL=https://netactuate.dl.sourceforge.net/project/sdcc/sdcc/$SDCC_VERSION/sdcc-src-$SDCC_VERSION.tar.bz2
+
+#The url for gbdk
+GBDK_DOWNLOAD_URL=https://github.com/Zal0/gbdk-2020/archive/$GBDK_VERSION.tar.gz
 
 #The install dir for the compilers
 INSTALL_DIR=/usr/i686-elf
@@ -45,8 +45,8 @@ cd /tmp/tsos
 wget $GCC_DOWNLOAD_URL
 wget $BINUTILS_DOWNLOAD_URL
 wget $DEVKITARM_DOWNLOAD_URL
-wget $GBDK_DOWNLOAD_URL
 wget $SDCC_DOWNLOAD_URL
+wget $GBDK_DOWNLOAD_URL
 
 #Unarchive those tarballs
 tar -xf gcc-$GCC_VERSION.tar.xz
@@ -55,10 +55,10 @@ tar -xf binutils-$BINUTILS_VERSION.tar.xz
 mv -v binutils-$BINUTILS_VERSION/ binutils/
 tar -xf devkitARM_$DEVKITARM_VERSION.tar.gz
 mv -v buildscripts-devkitARM_$DEVKITARM_VERSION/ devkitarm
-tar -xf $GBDK_VERSION.tar.gz
-mv -v gbdk-2020-$GBDK_VERSION/ gbdk
 tar -xf sdcc-src-$SDCC_VERSION.tar.bz2
 mv -v sdcc-src-$SDCC_VERSION/ sdcc
+tar -xf $GBDK_VERSION.tar.gz
+mv -v gbdk-2020-$GBDK_VERSION/ gbdk
 
 #We will compile binutils first
 cd binutils
