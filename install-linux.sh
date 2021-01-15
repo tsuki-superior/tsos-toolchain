@@ -46,10 +46,10 @@ tar -xf gcc-$GCC_VERSION.tar.xz
 mv -v gcc-$GCC_VERSION/ gcc/
 tar -xf binutils-$BINUTILS_VERSION.tar.xz
 mv -v binutils-$BINUTILS_VERSION/ binutils/
-tar -xf devkitARM_$DEVKITARM_VERSION.tar.gz
-mv -v devkitARM_$DEVKITARM_VERSION/ devkitarm
-tar -xf $GBDK_VERSION.tar.gz
-mv -v $GBDK_VERSION/ gbdk
+tar -xf buildscripts-devkitARM_$DEVKITARM_VERSION.tar.gz
+mv -v buildscripts-devkitARM_$DEVKITARM_VERSION/ devkitarm
+tar -xf gbdk-2020-$GBDK_VERSION.tar.gz
+mv -v gbdk-2020-$GBDK_VERSION/ gbdk
 
 #We will compile binutils first
 cd binutils
