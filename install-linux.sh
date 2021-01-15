@@ -96,6 +96,13 @@ cd devkitarm
 chmod +x ./*.sh
 ./build-devkit.sh 1
 
+#Install sdcc
+cd /tmp/tsos
+cd sdcc
+mkdir -pv build
+cd build
+../configure --prefix=$INSTALL_DIR
+
 #Install gbdk
 cd /tmp/tsos
 cd gbdk
