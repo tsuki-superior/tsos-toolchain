@@ -41,21 +41,21 @@ cd /tmp/tsos
 #Get the compilers from the web
 wget $GCC_DOWNLOAD_URL
 wget $BINUTILS_DOWNLOAD_URL
-wget $DEVKITARM_DOWNLOAD_URL
-wget $SDCC_DOWNLOAD_URL
-wget $GBDK_DOWNLOAD_URL
+#wget $DEVKITARM_DOWNLOAD_URL
+#wget $SDCC_DOWNLOAD_URL
+#wget $GBDK_DOWNLOAD_URL
 
 #Unarchive those tarballs
 tar -xf gcc-$GCC_VERSION.tar.xz
 mv -v gcc-$GCC_VERSION/ gcc/
 tar -xf binutils-$BINUTILS_VERSION.tar.xz
 mv -v binutils-$BINUTILS_VERSION/ binutils/
-tar -xf devkitARM_$DEVKITARM_VERSION.tar.gz
-mv -v buildscripts-devkitARM_$DEVKITARM_VERSION/ devkitarm
-tar -xf sdcc-src-$SDCC_VERSION.tar.bz2
-mv -v sdcc-src-$SDCC_VERSION/ sdcc
-tar -xf $GBDK_VERSION.tar.gz
-mv -v gbdk-2020-$GBDK_VERSION/ gbdk
+#tar -xf devkitARM_$DEVKITARM_VERSION.tar.gz
+#mv -v buildscripts-devkitARM_$DEVKITARM_VERSION/ devkitarm
+#tar -xf sdcc-src-$SDCC_VERSION.tar.bz2
+#mv -v sdcc-src-$SDCC_VERSION/ sdcc
+#tar -xf $GBDK_VERSION.tar.gz
+#mv -v gbdk-2020-$GBDK_VERSION/ gbdk
 
 #Lets update that path variable
 export PATH=$PATH:$INSTALL_DIR/bin
