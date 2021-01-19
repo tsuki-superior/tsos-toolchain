@@ -73,7 +73,7 @@ cd build
     --disable-nls \
     --disable-werror
 
-make make -j$(nproc)
+make -j$(nproc)
 make install
 
 #Now we will compile gcc
@@ -88,7 +88,7 @@ cd build
     --disable-libssp \
     --disable-werror
 
-make make -j$(nproc)
+make -j$(nproc)
 make install
 
 #Im sorry that stuff doesnt work rn
