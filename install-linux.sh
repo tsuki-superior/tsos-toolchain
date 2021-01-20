@@ -75,6 +75,7 @@ cd build
 
 make -j$(nproc)
 make install
+rm -rfv /tmp/tsos/binutils
 
 #Now we will compile gcc
 cd /tmp/tsos
@@ -90,6 +91,7 @@ cd build
 
 make -j$(nproc)
 make install
+rm -rfv /tmp/tsos/gcc
 
 #Im sorry that stuff doesnt work rn
 exit
