@@ -87,7 +87,9 @@ cd build
     --disable-libssp \
     --disable-nls \
     --disable-libssp \
-    --disable-werror
+    --disable-werror \
+    --without-headers
+
 
 make -j$(nproc)
 make install
