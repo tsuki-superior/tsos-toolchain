@@ -7,7 +7,7 @@ rm -rfv /usr/tsos-toolchain
 GCC_VERSION=10.2.0
 
 #The version of binutils that will be used here
-BINUTILS_VERSION=2.35.1
+BINUTILS_VERSION=2.35
 
 #The version of devkitarm that will be used here
 DEVKITARM_VERSION=r55
