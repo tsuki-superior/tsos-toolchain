@@ -13,7 +13,7 @@ BINUTILS_VERSION=2.35.1
 DEVKITARM_VERSION=r55
 
 #The version of gbdk to use
-GBDK_VERSION=4.0.1
+GBDK_VERSION=4.0.2
 
 #The version of sdcc to use
 SDCC_VERSION=4.0.0
