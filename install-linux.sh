@@ -4,7 +4,7 @@
 rm -rfv /usr/tsos-toolchain
 
 #The version of gcc that will be used here
-GCC_VERSION=10.2.0
+GCC_VERSION=10.1.0
 
 #The version of binutils that will be used here
 BINUTILS_VERSION=2.35
