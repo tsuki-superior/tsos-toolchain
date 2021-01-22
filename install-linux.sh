@@ -47,11 +47,11 @@ wget $BINUTILS_DOWNLOAD_URL
 #Unarchive those tarballs
 tar -xf gcc-$GCC_VERSION.tar.xz
 mv -v gcc-$GCC_VERSION/ gcc-x86/
-cp -Rv gcc-x86/ gcc-arm/
+cp -R gcc-x86/ gcc-arm/
 
 tar -xf binutils-$BINUTILS_VERSION.tar.xz
 mv -v binutils-$BINUTILS_VERSION/ binutils-x86/
-cp -Rv binutils-x86/ binutils-arm/
+cp -R binutils-x86/ binutils-arm/
 
 #tar -xf sdcc-src-$SDCC_VERSION.tar.bz2
 #mv -v sdcc-src-$SDCC_VERSION/ sdcc
