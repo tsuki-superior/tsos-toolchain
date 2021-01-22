@@ -6,6 +6,9 @@ TSOS_TOOLCHAIN=/usr/tsos-toolchain
 #Remove previous installation
 rm -rfv $TSOS_TOOLCHAIN
 
+#Add new one
+mkdir -pv $TSOS_TOOLCHAIN/tools
+
 #The version of gcc that will be used here
 GCC_VERSION=10.1.0
 
@@ -29,6 +32,9 @@ SDCC_DOWNLOAD_URL=https://netactuate.dl.sourceforge.net/project/sdcc/sdcc/$SDCC_
 
 #The url for gbdk
 GBDK_DOWNLOAD_URL=https://github.com/Zal0/gbdk-2020/archive/$GBDK_VERSION.tar.gz
+
+#GBA crtls location
+GBA_CRTLS_DOWNLOAD_URL=https://www.devrs.com/gba/files/crtls.zip
 
 #Prepare and move to the directory
 rm -rfv /tmp/tsos
@@ -144,7 +150,7 @@ export SDCCDIR=$INSTALL_DIR
 #Install gbdk
 cd /tmp/tsos
 cd gbdk
-make 
+make
 make install
 
 echo "export PATH=$PATH" >>~/.profile
