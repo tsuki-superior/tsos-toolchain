@@ -33,9 +33,6 @@ SDCC_DOWNLOAD_URL=https://netactuate.dl.sourceforge.net/project/sdcc/sdcc/$SDCC_
 #The url for gbdk
 GBDK_DOWNLOAD_URL=https://github.com/Zal0/gbdk-2020/archive/$GBDK_VERSION.tar.gz
 
-#GBA crtls location
-GBA_CRTLS_DOWNLOAD_URL=https://www.devrs.com/gba/files/crtls.zip
-
 #Prepare and move to the directory
 rm -rfv /tmp/tsos
 mkdir -pv /tmp/tsos
