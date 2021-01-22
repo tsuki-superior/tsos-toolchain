@@ -77,7 +77,7 @@ cd build
 
 make -j$(nproc)
 make install
-rm -rfv /tmp/tsos/binutils-x86
+rm -rf /tmp/tsos/binutils-x86
 
 #Now we will compile gcc for x86
 cd /tmp/tsos
@@ -95,7 +95,7 @@ cd build
 
 make -j$(nproc)
 make install
-rm -rfv /tmp/tsos/gcc-x86
+rm -rf /tmp/tsos/gcc-x86
 
 #We will compile binutils for arm
 cd /tmp/tsos
@@ -112,7 +112,7 @@ cd build
 
 make -j$(nproc)
 make install
-rm -rfv /tmp/tsos/binutils-arm
+rm -rf /tmp/tsos/binutils-arm
 
 #Now we will compile gcc for arm
 cd /tmp/tsos
@@ -130,7 +130,7 @@ cd build
 
 make -j$(nproc)
 make install
-rm -rfv /tmp/tsos/gcc-arm
+rm -rf /tmp/tsos/gcc-arm
 
 #Im sorry that stuff doesnt work rn
 exit
