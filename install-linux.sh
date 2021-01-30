@@ -128,7 +128,7 @@ cd build
     --disable-libssp \
     --disable-werror \
     --without-headers \ 
-    --disable-libsanitizer
+--disable-libsanitizer
 
 make -j$(nproc)
 make install
