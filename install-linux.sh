@@ -91,8 +91,7 @@ cd build
     --target=i686-elf \
     --disable-libssp \
     --disable-werror \
-    --without-headers \
-    --disable-libsanitizer
+    --without-headers
 
 make -j$(nproc)
 make install
@@ -109,7 +108,8 @@ cd build
     --target=arm-none-eabi \
     --enable-multilib \
     --disable-nls \
-    --disable-werror
+    --disable-werror \
+    --disable-threads
 
 make -j$(nproc)
 make install
@@ -127,8 +127,7 @@ cd build
     --target=arm-none-eabi \
     --disable-libssp \
     --disable-werror \
-    --without-headers \ 
---disable-libsanitizer
+    --without-headers
 
 make -j$(nproc)
 make install
