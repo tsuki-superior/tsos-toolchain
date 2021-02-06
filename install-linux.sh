@@ -82,6 +82,7 @@ rm -rf /tmp/tsos/binutils-x86
 # Now we will compile gcc for x86
 cd /tmp/tsos
 cd gcc-x86
+./contrib/download_prerequisites
 mkdir -pv build
 cd build
 ../configure --prefix=$TSOS_TOOLCHAIN \
@@ -118,6 +119,7 @@ rm -rf /tmp/tsos/binutils-arm
 # Compiling gcc for arm
 cd /tmp/tsos
 cd gcc-arm
+./contrib/download_prerequisites
 mkdir -pv build
 cd build
 ../configure --prefix=$TSOS_TOOLCHAIN \
