@@ -15,23 +15,11 @@ GCC_VERSION=10.1.0
 # The version of binutils that will be used here
 BINUTILS_VERSION=2.35
 
-# The version of gbdk to use
-GBDK_VERSION=4.0.2
-
-# The version of sdcc to use
-SDCC_VERSION=4.0.0
-
 # The url for gcc`s tarball
 GCC_DOWNLOAD_URL=https://ftp.gnu.org/gnu/gcc/gcc-$GCC_VERSION/gcc-$GCC_VERSION.tar.xz
 
 # The url for binutils`s tarball
 BINUTILS_DOWNLOAD_URL=https://ftp.gnu.org/gnu/binutils/binutils-$BINUTILS_VERSION.tar.xz
-
-# The sdcc download url
-SDCC_DOWNLOAD_URL=https://netactuate.dl.sourceforge.net/project/sdcc/sdcc/$SDCC_VERSION/sdcc-src-$SDCC_VERSION.tar.bz2
-
-# The url for gbdk
-GBDK_DOWNLOAD_URL=https://github.com/Zal0/gbdk-2020/archive/$GBDK_VERSION.tar.gz
 
 # Prepare and move to the directory
 rm -rfv /tmp/tsos
@@ -41,8 +29,6 @@ cd /tmp/tsos
 # Get the compilers from the web
 wget $GCC_DOWNLOAD_URL
 wget $BINUTILS_DOWNLOAD_URL
-# wget $SDCC_DOWNLOAD_URL
-# wget $GBDK_DOWNLOAD_URL
 
 # Extracting those tarballs
 tar -xf gcc-$GCC_VERSION.tar.xz
@@ -52,12 +38,6 @@ cp -R gcc-x86/ gcc-arm/
 tar -xf binutils-$BINUTILS_VERSION.tar.xz
 mv -v binutils-$BINUTILS_VERSION/ binutils-x86/
 cp -R binutils-x86/ binutils-arm/
-
-# tar -xf sdcc-src-$SDCC_VERSION.tar.bz2
-# mv -v sdcc-src-$SDCC_VERSION/ sdcc
-
-# tar -xf $GBDK_VERSION.tar.gz
-# mv -v gbdk-2020-$GBDK_VERSION/ gbdk
 
 # Lets update that path variable
 export PATH=$PATH:$TSOS_TOOLCHAIN/bin
@@ -136,21 +116,6 @@ make install
 rm -rf /tmp/tsos/gcc-arm
 
 exit
-
-# Install sdcc
-cd /tmp/tsos
-cd sdcc
-mkdir -pv build
-cd build
-../configure --prefix=$INSTALL_DIR
-
-export SDCCDIR=$INSTALL_DIR
-
-# Install gbdk
-cd /tmp/tsos
-cd gbdk
-make
-make install
 
 echo "export PATH=$PATH" >>~/.profile
 
