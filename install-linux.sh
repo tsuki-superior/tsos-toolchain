@@ -34,10 +34,12 @@ wget $BINUTILS_DOWNLOAD_URL
 tar -xf gcc-$GCC_VERSION.tar.xz
 mv -v gcc-$GCC_VERSION/ gcc-x86/
 cp -R gcc-x86/ gcc-arm/
+cp -R gcc-x86/ gcc-mipsel/
 
 tar -xf binutils-$BINUTILS_VERSION.tar.xz
 mv -v binutils-$BINUTILS_VERSION/ binutils-x86/
 cp -R binutils-x86/ binutils-arm/
+cp -R binutils-x86/ binutils-mipsel/
 
 # Lets update that path variable
 export PATH=$PATH:$TSOS_TOOLCHAIN/bin
@@ -72,7 +74,9 @@ cd build
     --target=i686-elf \
     --disable-libssp \
     --disable-werror \
-    --without-headers
+    --without-headers \
+    --disable-libada \
+    --disable-libssp
 
 make -j$(nproc)
 make install
@@ -90,7 +94,9 @@ cd build
     --enable-multilib \
     --disable-nls \
     --disable-werror \
-    --disable-threads
+    --disable-threads \
+    --disable-libada \
+    --disable-libssp
 
 make -j$(nproc)
 make install
@@ -109,11 +115,56 @@ cd build
     --target=arm-none-eabi \
     --disable-libssp \
     --disable-werror \
-    --without-headers
+    --without-headers \
+    --disable-libada \
+    --disable-libssp
 
 make -j$(nproc)
 make install
 rm -rf /tmp/tsos/gcc-arm
+
+# We will compile binutils for mipsel
+cd /tmp/tsos
+cd binutils-mipsel
+mkdir -pv build
+cd build
+../configure --prefix=$TSOS_TOOLCHAIN \
+    --enable-gold \
+    --enable-interwork \
+    --target=mipsel-unknown-elf \
+    --enable-multilib \
+    --disable-nls \
+    --disable-werror \
+    --disable-threads \
+    --disable-libada \
+    --disable-libssp \
+    --with-float=soft
+
+make -j$(nproc)
+make install
+rm -rf /tmp/tsos/binutils-mipsel
+
+# Compiling gcc for mipsel
+cd /tmp/tsos
+cd gcc-mipsel
+./contrib/download_prerequisites
+mkdir -pv build
+cd build
+../configure --prefix=$TSOS_TOOLCHAIN \
+    --enable-languages=c,c++ \
+    --disable-libssp \
+    --disable-nls \
+    --target=mipsel-unknown-elf \
+    --disable-libssp \
+    --disable-werror \
+    --without-headers \
+    --disable-libada \
+    --disable-libssp \
+    --with-float=soft
+
+make -j$(nproc)
+make install
+rm -rf /tmp/tsos/gcc-mipsel
 
 exit
 
