@@ -74,9 +74,7 @@ cd build
     --target=i686-elf \
     --disable-libssp \
     --disable-werror \
-    --without-headers \
-    --disable-libada \
-    --disable-libssp
+    --without-headers 
 
 make -j$(nproc)
 make install
@@ -94,9 +92,7 @@ cd build
     --enable-multilib \
     --disable-nls \
     --disable-werror \
-    --disable-threads \
-    --disable-libada \
-    --disable-libssp
+    --disable-threads 
 
 make -j$(nproc)
 make install
@@ -115,9 +111,7 @@ cd build
     --target=arm-none-eabi \
     --disable-libssp \
     --disable-werror \
-    --without-headers \
-    --disable-libada \
-    --disable-libssp
+    --without-headers 
 
 make -j$(nproc)
 make install
@@ -135,10 +129,7 @@ cd build
     --enable-multilib \
     --disable-nls \
     --disable-werror \
-    --disable-threads \
-    --disable-libada \
-    --disable-libssp \
-    --with-float=soft
+    --disable-threads 
 
 make -j$(nproc)
 make install
@@ -157,10 +148,7 @@ cd build
     --target=mipsel-unknown-elf \
     --disable-libssp \
     --disable-werror \
-    --without-headers \
-    --disable-libada \
-    --disable-libssp \
-    --with-float=soft
+    --without-headers 
 
 make -j$(nproc)
 make install
