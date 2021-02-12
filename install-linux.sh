@@ -76,7 +76,8 @@ cd build
     --disable-werror \
     --without-headers \
     --disable-libada \
-    --disable-libssp
+    --disable-libssp \
+    --disable-bootstrap
 
 make -j$(nproc)
 make install
@@ -117,7 +118,8 @@ cd build
     --disable-werror \
     --without-headers \
     --disable-libada \
-    --disable-libssp
+    --disable-libssp \
+    --disable-bootstrap
 
 make -j$(nproc)
 make install
@@ -160,6 +162,7 @@ cd build
     --without-headers \
     --disable-libada \
     --disable-libssp \
+    --disable-bootstrap \
     --with-float=soft
 
 make -j$(nproc)
