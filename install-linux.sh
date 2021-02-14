@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # TS/OS toolchain location
 TSOS_TOOLCHAIN=/usr/tsos-toolchain
