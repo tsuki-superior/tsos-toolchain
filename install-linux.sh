@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# By Tsuki Superior
 
 # TS/OS toolchain location
 TSOS_TOOLCHAIN=/usr/tsos-toolchain
@@ -44,6 +45,7 @@ cp -R binutils-x86/ binutils-mipsel/
 # Lets update that path variable
 export PATH=$PATH:$TSOS_TOOLCHAIN/bin
 echo "export PATH=$PATH" >>~/.bashrc
+echo "export PATH=$PATH" >>~/.profile
 
 # We will compile binutils first for x86
 cd binutils-x86
@@ -170,7 +172,3 @@ make install
 rm -rf /tmp/tsos/gcc-mipsel
 
 exit
-
-echo "export PATH=$PATH" >>~/.profile
-
-cd $CODE_DIR
