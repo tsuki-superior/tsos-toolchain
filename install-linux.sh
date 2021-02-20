@@ -31,12 +31,13 @@ cd /tmp/tsos
 wget $GCC_DOWNLOAD_URL
 wget $BINUTILS_DOWNLOAD_URL
 
-# Extracting those tarballs
+# Extracting and copying gcc tarballs
 tar -xf gcc-$GCC_VERSION.tar.xz
 mv -v gcc-$GCC_VERSION/ gcc-x86/
 cp -R gcc-x86/ gcc-arm/
 cp -R gcc-x86/ gcc-mipsel/
 
+# Extracting and copying gcc tarballs
 tar -xf binutils-$BINUTILS_VERSION.tar.xz
 mv -v binutils-$BINUTILS_VERSION/ binutils-x86/
 cp -R binutils-x86/ binutils-arm/
@@ -57,7 +58,8 @@ cd build
     --target=i686-elf \
     --enable-multilib \
     --disable-nls \
-    --disable-werror
+    --disable-werror \
+    --program-prefix=tsos-i686-
 
 make -j$(nproc)
 make install
@@ -79,7 +81,8 @@ cd build
     --without-headers \
     --disable-libada \
     --disable-libssp \
-    --disable-bootstrap
+    --disable-bootstrap \
+    --program-prefix=tsos-i686-
 
 make -j$(nproc)
 make install
@@ -99,7 +102,8 @@ cd build
     --disable-werror \
     --disable-threads \
     --disable-libada \
-    --disable-libssp
+    --disable-libssp \
+    --program-prefix=tsos-arm-
 
 make -j$(nproc)
 make install
@@ -121,7 +125,8 @@ cd build
     --without-headers \
     --disable-libada \
     --disable-libssp \
-    --disable-bootstrap
+    --disable-bootstrap \
+    --program-prefix=tsos-arm-
 
 make -j$(nproc)
 make install
@@ -142,7 +147,8 @@ cd build
     --disable-threads \
     --disable-libada \
     --disable-libssp \
-    --with-float=soft
+    --with-float=soft \
+    --program-prefix=tsos-mipsel-
 
 make -j$(nproc)
 make install
@@ -165,7 +171,8 @@ cd build
     --disable-libada \
     --disable-libssp \
     --disable-bootstrap \
-    --with-float=soft
+    --with-float=soft \
+    --program-prefix=tsos-mipsel-
 
 make -j$(nproc)
 make install
