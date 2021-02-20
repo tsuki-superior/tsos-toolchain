@@ -103,7 +103,7 @@ cd build
     --disable-threads \
     --disable-libada \
     --disable-libssp \
-    --program-prefix=tsos-arm-
+    --program-prefix=tsos-armeabi-
 
 make -j$(nproc)
 make install
@@ -126,7 +126,7 @@ cd build
     --disable-libada \
     --disable-libssp \
     --disable-bootstrap \
-    --program-prefix=tsos-arm-
+    --program-prefix=tsos-armeabi-
 
 make -j$(nproc)
 make install
