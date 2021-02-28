@@ -25,7 +25,7 @@ BINUTILS_DOWNLOAD_URL=https://ftp.gnu.org/gnu/binutils/binutils-$BINUTILS_VERSIO
 # Prepare and move to the directory
 rm -rfv /tmp/tsos
 mkdir -pv /tmp/tsos
-cd /tmp/tsos
+cd /tmp/tsos || exit 1
 
 # Get the compilers from the web
 wget $GCC_DOWNLOAD_URL
@@ -49,9 +49,9 @@ echo "export PATH=$PATH" >>~/.bashrc
 echo "export PATH=$PATH" >>~/.profile
 
 # We will compile binutils first for x86
-cd binutils-x86
+cd binutils-x86 || exit 1
 mkdir -pv build
-cd build
+cd build || exit 1
 ../configure --prefix=$TSOS_TOOLCHAIN \
     --enable-gold \
     --enable-interwork \
@@ -61,16 +61,16 @@ cd build
     --disable-werror \
     --program-prefix=tsos-i686-
 
-make -j$(nproc)
+make -j"$(nproc)"
 make install
 rm -rf /tmp/tsos/binutils-x86
 
 # Now we will compile gcc for x86
-cd /tmp/tsos
-cd gcc-x86
+cd /tmp/tsos || exit 1
+cd gcc-x86 || exit 1
 ./contrib/download_prerequisites
 mkdir -pv build
-cd build
+cd build || exit 1
 ../configure --prefix=$TSOS_TOOLCHAIN \
     --enable-languages=c,c++ \
     --disable-libssp \
@@ -84,15 +84,15 @@ cd build
     --disable-bootstrap \
     --program-prefix=tsos-i686-
 
-make -j$(nproc)
+make -j"$(nproc)"
 make install
 rm -rf /tmp/tsos/gcc-x86
 
 # We will compile binutils for arm
-cd /tmp/tsos
-cd binutils-arm
+cd /tmp/tsos || exit 1
+cd binutils-arm || exit 1
 mkdir -pv build
-cd build
+cd build || exit 1
 ../configure --prefix=$TSOS_TOOLCHAIN \
     --enable-gold \
     --enable-interwork \
@@ -105,16 +105,16 @@ cd build
     --disable-libssp \
     --program-prefix=tsos-armeabi-
 
-make -j$(nproc)
+make -j"$(nproc)"
 make install
 rm -rf /tmp/tsos/binutils-arm
 
 # Compiling gcc for arm
-cd /tmp/tsos
-cd gcc-arm
+cd /tmp/tsos || exit 1
+cd gcc-arm || exit 1
 ./contrib/download_prerequisites
 mkdir -pv build
-cd build
+cd build || exit 1
 ../configure --prefix=$TSOS_TOOLCHAIN \
     --enable-languages=c,c++ \
     --disable-libssp \
@@ -133,10 +133,10 @@ make install
 rm -rf /tmp/tsos/gcc-arm
 
 # We will compile binutils for mipsel
-cd /tmp/tsos
-cd binutils-mipsel
+cd /tmp/tsos || exit 1
+cd binutils-mipsel || exit 1
 mkdir -pv build
-cd build
+cd build || exit 1
 ../configure --prefix=$TSOS_TOOLCHAIN \
     --enable-gold \
     --enable-interwork \
@@ -150,16 +150,16 @@ cd build
     --with-float=soft \
     --program-prefix=tsos-mipsel-
 
-make -j$(nproc)
+make -j"$(nproc)"
 make install
 rm -rf /tmp/tsos/binutils-mipsel
 
 # Compiling gcc for mipsel
-cd /tmp/tsos
-cd gcc-mipsel
+cd /tmp/tsos || exit 1
+cd gcc-mipsel || exit 1
 ./contrib/download_prerequisites
 mkdir -pv build
-cd build
+cd build || exit 1
 ../configure --prefix=$TSOS_TOOLCHAIN \
     --enable-languages=c,c++ \
     --disable-libssp \
@@ -174,7 +174,7 @@ cd build
     --with-float=soft \
     --program-prefix=tsos-mipsel-
 
-make -j$(nproc)
+make -j"$(nproc)"
 make install
 rm -rf /tmp/tsos/gcc-mipsel
 
