@@ -63,6 +63,7 @@ tar -xf gba-tools-$GBA_TOOLS_VERSION.tar.bz2
 mv -v gba-tools-$GBA_TOOLS_VERSION/ gba-tools/
 
 # Extracting tsos-elf2x tarballs
+cp -v $TSOS_ELF2X_VERSION.tar.gz tsos-elf2x-$TSOS_ELF2X_VERSION.tar.gz
 tar -xf tsos-elf2x-$TSOS_ELF2X_VERSION.tar.gz
 mv -v tsos-elf2x-$TSOS_ELF2X_VERSION/ tsos-elf2x/
 
