@@ -8,7 +8,7 @@ TSOS_TOOLCHAIN=/usr/tsos-toolchain/
 rm -rfv $TSOS_TOOLCHAIN
 
 # Add new installation
-mkdir -pv $TSOS_TOOLCHAIN/tools
+mkdir -pv $TSOS_TOOLCHAIN
 
 # The version of gcc that will be used here
 GCC_VERSION=10.1.0
@@ -16,8 +16,11 @@ GCC_VERSION=10.1.0
 # The version of binutils that will be used here
 BINUTILS_VERSION=2.35
 
-# The version of gba tools i will use
+# The version of gba tools that will used here
 GBA_TOOLS_VERSION=1.2.0
+
+# The version of tsos-elf2x that will used here
+TSOS_ELF2X_VERSION=1.0.1
 
 # The url for gcc`s tarball
 GCC_DOWNLOAD_URL=https://ftp.gnu.org/gnu/gcc/gcc-$GCC_VERSION/gcc-$GCC_VERSION.tar.xz
@@ -28,6 +31,10 @@ BINUTILS_DOWNLOAD_URL=https://ftp.gnu.org/gnu/binutils/binutils-$BINUTILS_VERSIO
 # The url for gba-tools
 GBA_TOOLS_DOWNLOAD_URL=https://github.com/devkitPro/gba-tools/releases/download/v$GBA_TOOLS_VERSION/gba-tools-$GBA_TOOLS_VERSION.tar.bz2
 
+# The url for tsos-elf2x
+TSOS_ELF2X_URL=https://github.com/tsuki-superior/tsos-elf2x/archive/$TSOS_ELF2X_VERSION.tar.gz
+mv $TSOS_ELF2X_VERSION.tar.gz tsos-elf2x-$TSOS_ELF2X_VERSION.tar.gz
+
 # Prepare and move to the directory
 rm -rfv /tmp/tsos
 mkdir -pv /tmp/tsos
@@ -37,6 +44,7 @@ cd /tmp/tsos || exit 1
 wget $GCC_DOWNLOAD_URL
 wget $BINUTILS_DOWNLOAD_URL
 wget $GBA_TOOLS_DOWNLOAD_URL
+wget $TSOS_ELF2X_URL
 
 # Extracting and copying gcc tarballs
 tar -xf gcc-$GCC_VERSION.tar.xz
@@ -54,10 +62,21 @@ cp -R binutils-x86/ binutils-mipsel/
 tar -xf gba-tools-$GBA_TOOLS_VERSION.tar.bz2
 mv -v gba-tools-$GBA_TOOLS_VERSION/ gba-tools/
 
+# Extracting tsos-elf2x tarballs
+tar -xf tsos-elf2x-$TSOS_ELF2X_VERSION.tar.gz
+mv -v tsos-elf2x-$TSOS_ELF2X_VERSION/ tsos-elf2x/
+
 # Lets update that path variable
 export PATH=$PATH:$TSOS_TOOLCHAIN/bin
 echo "export PATH=$PATH" >>~/.bashrc
 echo "export PATH=$PATH" >>~/.profile
+
+# GBA tools will be first
+cd tsos-elf2x || exit 1
+make -j"$(nproc)"
+make install
+cd /tmp/tsos || exit 1
+rm -rf /tmp/tsos/tsos-elf2x
 
 # GBA tools will be first
 cd gba-tools || exit 1
