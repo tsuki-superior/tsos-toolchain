@@ -20,7 +20,7 @@ BINUTILS_VERSION=2.35
 GBA_TOOLS_VERSION=1.2.0
 
 # The version of tsos-elf2x that will used here
-TSOS_ELF2X_VERSION=1.0.1
+TSOS_ELF2X_VERSION=1.0.2
 
 # The url for gcc`s tarball
 GCC_DOWNLOAD_URL=https://ftp.gnu.org/gnu/gcc/gcc-$GCC_VERSION/gcc-$GCC_VERSION.tar.xz
@@ -83,7 +83,7 @@ rm -rf /tmp/tsos/tsos-elf2x
 cd gba-tools || exit 1
 mkdir -pv build
 cd build || exit 1
-../configure  --prefix=$TSOS_TOOLCHAIN \
+../configure --prefix=$TSOS_TOOLCHAIN \
     --program-prefix=tsos-
 
 make -j"$(nproc)"
