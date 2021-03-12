@@ -33,6 +33,7 @@ GBA_TOOLS_DOWNLOAD_URL=https://github.com/devkitPro/gba-tools/releases/download/
 
 # The url for tsos-elf2x
 TSOS_ELF2X_URL=https://github.com/tsuki-superior/tsos-elf2x/archive/$TSOS_ELF2X_VERSION.tar.gz
+cp -v $TSOS_ELF2X_VERSION.tar.gz tsos-elf2x-$TSOS_ELF2X_VERSION.tar.gz
 
 # Prepare and move to the directory
 rm -rfv /tmp/tsos
